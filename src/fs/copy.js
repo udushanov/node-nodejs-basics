@@ -5,7 +5,7 @@ const copy = async () => {
   const currentDir = dirname(import.meta.url).substring(8);
   const sourcePath = join(currentDir, "files");
   const destinationPath = join(currentDir, "files_copy");
-  
+
   try {
     const files = await readdir(sourcePath);
     await mkdir(destinationPath, { recursive: false });
@@ -16,7 +16,8 @@ const copy = async () => {
       await copyFile(sourceFile, destinationFile);
     }
 
-  } catch(err) {
+    console.log("Files copied successfully");
+  } catch (err) {
     throw new Error("FS operation failed");
   }
 };
