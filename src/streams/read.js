@@ -6,11 +6,13 @@ const read = async () => {
   const filePath = join(currentDir, "files", "fileToRead.txt");
   const readableStream = createReadStream(filePath);
 
-  readableStream.on('data', (chunk) => {
-    console.log(chunk.toString())
-  })
+  readableStream.on("data", (chunk) => {
+    console.log(chunk.toString());
+  });
 
-  readableStream.on('end', () => {console.log('Stream ended')})
+  readableStream.on("end", () => {
+    console.log("Stream ended");
+  });
 };
 
 await read();

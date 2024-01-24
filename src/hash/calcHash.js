@@ -8,16 +8,16 @@ const calculateHash = async () => {
   const buffer = await readFile(filePath);
   const text = buffer.toString();
 
-  const hmac = createHmac('sha256', 'secret');
+  const hmac = createHmac("sha256", "secret");
 
-  hmac.on('readable', () => {
+  hmac.on("readable", () => {
     const data = hmac.read();
-    
+
     if (data) {
-      console.log(data.toString('hex'));
+      console.log(data.toString("hex"));
     }
-  })
-  
+  });
+
   hmac.write(text);
   hmac.end();
 };
